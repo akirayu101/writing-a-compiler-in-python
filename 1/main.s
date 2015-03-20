@@ -1,11 +1,3 @@
-#!/bin/env python
-
-
-class Compiler(object):
-
-    @staticmethod
-    def compile(exp):
-        print(r'''
 	.section	__TEXT,__text,regular,pure_instructions
 	.globl	_main
 	.align	4, 0x90
@@ -24,8 +16,6 @@ Ltmp4:
 	popq	%rbp
 	retq
 	.cfi_endproc
+
+
 .subsections_via_symbols
-        ''')
-
-
-Compiler.compile(None)
