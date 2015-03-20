@@ -13,15 +13,10 @@ Ltmp3:
 Ltmp4:
 	.cfi_def_cfa_register %rbp
 	subq	$16, %rsp
-	movl	$0, %eax
 	leaq	L_.str(%rip), %rdi
-	movl	%eax, -4(%rbp)          ## 4-byte Spill
-	movb	$0, %al
 	callq	_puts
-	movl	-4(%rbp), %ecx          ## 4-byte Reload
-	movl	%eax, -8(%rbp)          ## 4-byte Spill
-	movl	%ecx, %eax
 	addq	$16, %rsp
+	movl	$0, %eax
 	popq	%rbp
 	retq
 	.cfi_endproc
