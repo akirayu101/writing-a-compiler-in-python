@@ -2,7 +2,6 @@
 
 
 class Compiler(object):
-
     @staticmethod
     def compile(exp):
         print(r'''
