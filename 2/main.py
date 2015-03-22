@@ -41,8 +41,6 @@ class Compiler(object):
         args_tuple = zip(args, exp[1:])
         ununsed_registers = deepcopy(self.call_arg_registers)
 
-        Compiler.before_exp()
-
         # push args into register
         for (i, arg) in args_tuple:
 
@@ -58,6 +56,9 @@ class Compiler(object):
                 pass  # TODO
         print('	callq	{0}'.format(call))
 
+    def compile(self, exp):
+        Compiler.before_exp()
+        self.compile_exp(exp)
         Compiler.end_exp()
         self.output_constants()
 
@@ -91,4 +92,4 @@ Ltmp4:
 
 
 compiler = Compiler()
-compiler.compile_exp(['_printf', r'%20ld\n', 100])
+compiler.compile(['_printf', r'%20ld\n', 100])
